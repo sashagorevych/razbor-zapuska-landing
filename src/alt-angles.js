@@ -18,7 +18,8 @@
       lede: 'Забери секретный разбор <b>схемы запусков</b>, которая за 2 года вывела меня с нуля на $300K — <b>на небольшом блоге с 700–1&nbsp;000 охватов</b>',
       cta: 'Забрать разбор',
       hero: 'photo',
-      ladder: false
+      ladder: false,
+      link: 'https://t.me/sashagorevich?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0.%20%D0%94%D0%B0%D0%B9%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D1%83'
     },
     '3': {
       badge: '<span class="lock" aria-hidden="true">🎬</span>Видео-гайд для экспертов и продюсеров',
@@ -34,7 +35,8 @@
       badge: LOCK + 'Закрытая видео-экскурсия',
       h1: 'Экскурсия в проект, который делает <span class="g">$300&nbsp;000</span> за запуск',
       lede: 'Проведу по всем комнатам: воронка, таблицы выручки, переписки с командой — <b>шесть рабочих документов</b>, по которым собран этот запуск — <b>без теории и без причёсанных кейсов</b>',
-      cta: 'Пойти на экскурсию'
+      cta: 'Пойти на экскурсию',
+      link: 'https://t.me/sashagorevich?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0.%20%D0%94%D0%B0%D0%B9%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D1%83'
     }
   };
   var key = new URLSearchParams(location.search).get('a') || '1';
@@ -54,4 +56,5 @@
   if(c.play === false){ var P = document.querySelector('.tape .play'); if(P) P.remove(); }
   if(c.ladder === false){ var L = document.getElementById('a-ladder'); if(L) L.remove(); }
   Array.prototype.forEach.call(document.querySelectorAll('.cta-label'), function(b){ b.textContent = c.cta; });
+  if(c.link){ var M = document.getElementById('cta-main'); if(M) M.href = c.link; }
 })();
