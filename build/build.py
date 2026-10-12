@@ -36,6 +36,8 @@ def check_uk(text, where):
 
 html = io.open(os.path.join(SRC, 'alt.html'), encoding='utf-8').read()
 js   = io.open(os.path.join(SRC, 'alt-angles.js'), encoding='utf-8').read()
+pixel = io.open(os.path.join(SRC, 'pixel.html'), encoding='utf-8').read()
+PIXEL_ON = '24'   # версии, на которых стоит Meta Pixel (ru и uk)
 js   = js.replace("new URLSearchParams(location.search).get('a') || '1'",
                   "window.ANGLE || new URLSearchParams(location.search).get('a') || '1'")
 
@@ -58,6 +60,8 @@ for lang in ('ru', 'uk'):
         p = re.sub(r'(<meta name="description" content=")[^"]*(")', lambda m: m.group(1) + d + m.group(2), p, count=1)
         p = p.replace('<script src="alt-angles.js"></script>',
                       '<script>window.ANGLE="%s"</script>\n<script src="/%s"></script>' % (v, jsname))
+        if v in PIXEL_ON:
+            p = p.replace('</head>', pixel + '</head>', 1)
         folder = os.path.join(OUT, v if lang == 'ru' else 'ua/' + v)
         os.makedirs(folder, exist_ok=True)
         io.open(os.path.join(folder, 'index.html'), 'w', encoding='utf-8').write(p)
