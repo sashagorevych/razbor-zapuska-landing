@@ -56,5 +56,5 @@
   if(c.play === false){ var P = document.querySelector('.tape .play'); if(P) P.remove(); }
   if(c.ladder === false){ var L = document.getElementById('a-ladder'); if(L) L.remove(); }
   Array.prototype.forEach.call(document.querySelectorAll('.cta-label'), function(b){ b.textContent = c.cta; });
-  if(c.link){ var M = document.getElementById('cta-main'); if(M) M.href = c.link; }
+  if(c.link){ Array.prototype.forEach.call(document.querySelectorAll('.cta-label, #sticky a'), function(b){ b.href = c.link; }); }
 })();
