@@ -388,7 +388,7 @@ src="https://www.facebook.com/tr?id=1716061316756450&ev=PageView&noscript=1"
   </div>
   <div class="wrap hero-foot">
     <div class="cta-row c">
-      <a href="#access" class="btn cta-label">Забрать разбор</a>
+      <a href="https://telegram.me/sasha_gorevych_bot?start=ZGw6MzQ1Njgz" class="btn cta-label ss-tg">Забрать разбор</a>
     </div>
   </div>
 </header>
@@ -551,7 +551,7 @@ src="https://www.facebook.com/tr?id=1716061316756450&ev=PageView&noscript=1"
       </div>
     </div>
     <div class="cta-row c" style="margin-top:clamp(56px,7vw,96px)">
-      <a href="#access" class="btn cta-label">Забрать разбор</a>
+      <a href="https://telegram.me/sasha_gorevych_bot?start=ZGw6MzQ1Njgz" class="btn cta-label ss-tg">Забрать разбор</a>
     </div>
   </div>
 </section>
@@ -637,13 +637,13 @@ src="https://www.facebook.com/tr?id=1716061316756450&ev=PageView&noscript=1"
 <section class="sec final" id="access">
   <div class="blob a" style="top:auto;bottom:-260px"></div>
   <div class="wrap">
-    <div class="cta-row c"><a href="#" class="btn cta-label" id="cta-main">Забрать разбор</a></div>
+    <div class="cta-row c"><a href="https://telegram.me/sasha_gorevych_bot?start=ZGw6MzQ1Njgz" class="btn cta-label ss-tg" id="cta-main">Забрать разбор</a></div>
   </div>
 </section>
 
 <footer><div class="wrap">«Высшая Лига», Саша Горевич. Киев и Варшава, 2026</div></footer>
 
-<div class="sticky" id="sticky"><a href="#access" class="btn">Забрать разбор</a></div>
+<div class="sticky" id="sticky"><a href="https://telegram.me/sasha_gorevych_bot?start=ZGw6MzQ1Njgz" class="btn ss-tg">Забрать разбор</a></div>
 
 <script>window.ANGLE="4"</script>
 <script src="/alt-angles.js"></script>
@@ -654,6 +654,39 @@ src="https://www.facebook.com/tr?id=1716061316756450&ev=PageView&noscript=1"
   if(!s||!a)return;
   function f(){var r=a.getBoundingClientRect();s.classList.toggle('on',scrollY>640&&r.top>innerHeight);}
   addEventListener('scroll',f,{passive:true});f();
+})();
+</script>
+<!-- SmartSender: UTM, fbclid, fbp/fbc, IP, user agent -> Telegram bot -->
+<script src="https://customer.smartsender.eu/js/client/dl.min.js"></script>
+<script>
+(function(){
+  var CLASS = 'ss-tg', DOMAIN = 'gorevych', v = {};
+  var q = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){
+    var x = q.get(k); if (x) v[k] = x;
+  });
+  v.client_user_agent = navigator.userAgent;
+  v.landing = location.pathname;
+  /* fbc straight from the ad click; the pixel cookie overrides it when it appears */
+  if (q.get('fbclid')) v.fbc = 'fb.1.' + Date.now() + '.' + q.get('fbclid');
+  function cookie(n){ var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : undefined; }
+  function wait(c, name, n){ var x = cookie(c); if (x) { v[name] = x; return; } if (n > 0) setTimeout(function(){ wait(c, name, n - 1); }, 200); }
+  wait('_fbp', 'fbp', 50); wait('_fbc', 'fbc', 50);
+  fetch('https://api.ipify.org/?format=json').then(function(r){ return r.json(); })
+    .then(function(d){ v.client_ip_address = d.ip; }).catch(function(){});
+  if (!window.ssDeepLink) return;           /* script blocked: buttons open the bot by plain href */
+  ssDeepLink(CLASS, DOMAIN, false, { variables: v });
+  /* safety net: if SmartSender does not answer in 3 s, open the bot anyway */
+  var left = false;
+  addEventListener('pagehide', function(){ left = true; });
+  addEventListener('blur', function(){ left = true; });
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) left = true; });
+  Array.prototype.forEach.call(document.getElementsByClassName(CLASS), function(b){
+    b.addEventListener('click', function(){
+      left = false;
+      setTimeout(function(){ if (!left) location.href = b.getAttribute('href'); }, 3000);
+    });
+  });
 })();
 </script>
 </body>

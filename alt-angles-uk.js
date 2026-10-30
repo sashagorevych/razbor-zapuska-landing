@@ -18,8 +18,7 @@
       lede: 'Забери секретний розбір <b>схеми запусків</b>, яка за 2 роки вивела мене з нуля на $300K — <b>на невеликому блозі з 700–1&nbsp;000 охоплень</b>',
       cta: 'Забрати розбір',
       hero: 'photo',
-      ladder: false,
-      link: 'https://t.me/sashagorevich?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0.%20%D0%94%D0%B0%D0%B9%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D1%83'
+      ladder: false
     },
     '3': {
       badge: '<span class="lock" aria-hidden="true">🎬</span>Відео-гайд для експертів і продюсерів',
@@ -35,8 +34,7 @@
       badge: LOCK + 'Закрита відео-екскурсія',
       h1: 'Екскурсія в проєкт, який робить <span class="g">$300&nbsp;000</span> за запуск',
       lede: 'Проведу по всіх кімнатах: воронка, таблиці виручки, листування з командою — <b>шість робочих документів</b>, за якими зібраний цей запуск — <b>без теорії та без причесаних кейсів</b>',
-      cta: 'Піти на екскурсію',
-      link: 'https://t.me/sashagorevich?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0.%20%D0%94%D0%B0%D0%B9%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%20%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D1%83'
+      cta: 'Піти на екскурсію'
     }
   };
   var key = window.ANGLE || new URLSearchParams(location.search).get('a') || '1';
@@ -56,5 +54,4 @@
   if(c.play === false){ var P = document.querySelector('.tape .play'); if(P) P.remove(); }
   if(c.ladder === false){ var L = document.getElementById('a-ladder'); if(L) L.remove(); }
   Array.prototype.forEach.call(document.querySelectorAll('.cta-label'), function(b){ b.textContent = c.cta; });
-  if(c.link){ Array.prototype.forEach.call(document.querySelectorAll('.cta-label, #sticky a'), function(b){ b.href = c.link; }); }
 })();
