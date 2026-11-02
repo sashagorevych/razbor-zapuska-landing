@@ -652,7 +652,10 @@ footer{border-top:1px solid var(--line-2);padding-block:30px;color:var(--ink-3);
   /* fbc straight from the ad click; the pixel cookie overrides it when it appears */
   if (q.get('fbclid')) v.fbc = 'fb.1.' + Date.now() + '.' + q.get('fbclid');
   function cookie(n){ var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : undefined; }
-  function wait(c, name, n){ var x = cookie(c); if (x) { v[name] = x; return; } if (n > 0) setTimeout(function(){ wait(c, name, n - 1); }, 200); }
+  var clk = q.get('fbclid');
+  /* take a cookie only when it belongs to this visit: an old _fbc must not replace a fresh ad click */
+  function fresh(name, x){ return name !== 'fbc' || !clk || x.slice(-clk.length - 1) === '.' + clk; }
+  function wait(c, name, n){ var x = cookie(c); if (x && fresh(name, x)) { v[name] = x; return; } if (n > 0) setTimeout(function(){ wait(c, name, n - 1); }, 200); }
   wait('_fbp', 'fbp', 50); wait('_fbc', 'fbc', 50);
   fetch('https://api.ipify.org/?format=json').then(function(r){ return r.json(); })
     .then(function(d){ v.client_ip_address = d.ip; }).catch(function(){});

@@ -37,7 +37,7 @@ def check_uk(text, where):
 html = io.open(os.path.join(SRC, 'alt.html'), encoding='utf-8').read()
 js   = io.open(os.path.join(SRC, 'alt-angles.js'), encoding='utf-8').read()
 pixel = io.open(os.path.join(SRC, 'pixel.html'), encoding='utf-8').read()
-PIXEL_ON = '24'   # версии, на которых стоит Meta Pixel (ru и uk)
+PIXEL_ON = '1234'   # версии, на которых стоит Meta Pixel (ru и uk)
 js   = js.replace("new URLSearchParams(location.search).get('a') || '1'",
                   "window.ANGLE || new URLSearchParams(location.search).get('a') || '1'")
 
